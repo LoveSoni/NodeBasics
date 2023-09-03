@@ -14,4 +14,4 @@ const myPromise = new Promise((resolve, reject) => {
     }
 });
 
-myPromise.then((msg) => { console.log(msg) }).catch(function (msg) { console.log(msg) });
+myPromise.then((msg) => { console.log(msg); return; }).then(function (msg) { console.log(msg) }).catch(function (msg) { console.log(msg) });
