@@ -20,9 +20,20 @@ const server = http.createServer((request, response) => {
 
     else if (url === '/message' && method === 'POST') {
         console.log('inside method url');
-        console.log('request is : ', request);
-        fs.writeFileSync('./capturedinputtexst.txt', 'test');
+        let requestBody = [];
+        request.on('data', function (datachunk) {
+            console.log('chunk ', datachunk);
+            requestBody.push(datachunk);
+        })
+        console.log('data chunk is : ', requestBody)
+        request.on('end', () => {
+            const parsedBody = Buffer.concat(requestBody).toString();
+            console.log('parsed body is ', parsedBody);
+            fs.writeFileSync('./capturedinputtexst.txt', parsedBody);
+        })
+
         response.statusCode = 302;
+        // redirecting url
         response.setHeader('Location', '/');
         response.end();
     }
