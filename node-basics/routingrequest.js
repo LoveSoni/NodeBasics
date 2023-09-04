@@ -29,11 +29,13 @@ const server = http.createServer((request, response) => {
         request.on('end', () => {
             const parsedBody = Buffer.concat(requestBody).toString();
             console.log('parsed body is ', parsedBody);
-            fs.writeFileSync('./capturedinputtexst.txt', parsedBody);
-            response.statusCode = 302;
-            // redirecting url
-            response.setHeader('Location', '/');
-            response.end();
+            fs.writeFileSync('./capturedinputtexst.txt', parsedBody, (error) => {
+                response.statusCode = 302;
+                // redirecting url
+                response.setHeader('Location', '/');
+                response.end();
+            });
+
         })
 
 
