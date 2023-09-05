@@ -41,4 +41,7 @@ function requestHandlers(request, response) {
 }
 
 
-module.exports = requestHandlers;
+// module.exports = requestHandlers;
+module.exports.handler = requestHandlers;// another way to export module
+// or directly use
+exports.someText = 'randomtext';
