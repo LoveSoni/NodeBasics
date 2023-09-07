@@ -18,9 +18,11 @@ app.use((request, response, next) => {
 // but this won't be called until we have next() call in the first request handler
 app.use((request, response, next) => {
     console.log('in another middleware');
-    response.send("{'username':'love'}");
+    response.send({ 'username': 'love' });
 
 })
 
-const server = http.createServer(app);
-server.listen(3000);
+// const server = http.createServer(app);
+// server.listen(3000);
+// note: we can directly call app server
+app.listen(3000);
