@@ -17,7 +17,9 @@ app.use((request, response, next) => {
 // we can have multiple app request handler e.g. 
 // but this won't be called until we have next() call in the first request handler
 app.use((request, response, next) => {
-    console.log('in another middleware')
+    console.log('in another middleware');
+    response.send("{'username':'love'}");
+
 })
 
 const server = http.createServer(app);
