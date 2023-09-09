@@ -4,6 +4,9 @@ const shopRouter = require('./routes/shop');
 const adminRouter = require('./routes/admin');
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', 'views'); // 2nd argument views is the folder name where we are gona keep pub file
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(shopRouter);
 app.use(adminRouter.router);
