@@ -6,4 +6,4 @@ router.get('/', (request, response, next) => {
     response.status(200).sendFile(path.join(__dirname, 'shop.html'))
 })
 
-module.exports = router; ``
+module.exports = router; 

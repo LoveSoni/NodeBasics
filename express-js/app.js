@@ -7,6 +7,8 @@ const expressimport = require('express');
 const app = expressimport();
 // here app is the valid request/response handler so we can directly pass it to createServer function
 
+
+
 app.use((request, response, next) => {
     console.log('in my middleware')
     response.statusCode = 200;
