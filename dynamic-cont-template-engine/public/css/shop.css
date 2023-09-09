@@ -31,9 +31,7 @@
             padding: 20px
         }
 
-        .main-nav-item :hover,
-        .main-nav-item :active,
-        .main-nav-item :active {
+        .main-nav-item :hover {
             color: pink;
         }
 
