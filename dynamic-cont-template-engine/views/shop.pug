@@ -14,4 +14,25 @@ header.main-header
         a(href='/add-product') Add Product
 main.main-content
   h2.main-heading My Products
-  p.main-paragraph List of all products
+  p.main-paragraph List of all productss
+  if prods.length>0
+    .grid
+        each product in prods
+            article.card.product_item
+            header.card__header
+                h1.product_title #{product['title']}
+            .card_image
+                img(src='https://media.istockphoto.com/id/1436096736/photo/knowledge-is-power-art-collage.webp?b=1&s=612x612&w=0&k=20&c=EERa6nZiy-YEPv0GITcsepTjT25o8Mume9bqeRfKc6c=' alt='books')
+            .card_content
+                h2.product_price 19.45$
+                p.product_description
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem non
+                | nam quisquam aperiam illo laborum molestiae velit. Repellat consequatur, tenetur doloribus,
+                | reprehenderit esse facilis quod commodi et iusto, rerum at.
+                | Nihil, maiores sint. Non veritatis nemo maxime magnam culpa, est quaerat voluptas accusamus
+                | laudantium incidunt dicta? Iste officiis voluptates facilis, nemo accusantium, voluptatum
+                | expedita eligendi sapiente quae ratione repudiandae commodi!
+            .card_action
+                button.add_card_btn Add to cart
+  else
+        h2 No product added

@@ -10,7 +10,7 @@ router.get('/add-product', (request, response, next) => {
 
 router.post('/add-product', (request, response, next) => {
     response.status(302);
-    addedProduct.push(request.body['value']);
+    addedProduct.push({ title: request.body['value'] });
     response.redirect("/");
 });
 
