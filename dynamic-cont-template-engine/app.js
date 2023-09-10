@@ -12,4 +12,7 @@ app.use(shopRouter);
 app.use(adminRouter.router);
 app.use(express.static('public'))
 
+app.use('/', (request, response, next) => {
+    response.status(401).render('404');
+})
 app.listen(3000);

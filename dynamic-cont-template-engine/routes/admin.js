@@ -5,7 +5,8 @@ const router = express.Router();
 const addedProduct = [];
 
 router.get('/add-product', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '../', 'views', 'admin.html'));
+    // response.sendFile(path.join(__dirname, '../', 'views', 'admin.html'));
+    response.render('admin');
 });
 
 router.post('/add-product', (request, response, next) => {

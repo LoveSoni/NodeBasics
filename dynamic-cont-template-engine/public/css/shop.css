@@ -48,6 +48,7 @@
             width: 50vw;
             border: 2px solid black;
             display: flex;
+            flex: row;
             align-items: center;
             justify-content: center;
         }

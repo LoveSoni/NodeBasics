@@ -1,0 +1,18 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Add Product
+  link(rel='stylesheet' href='/css/admin.css')
+header.main-header
+  nav.main-header-nav
+    ul.main-nav-items
+      li.main-nav-item
+        a(href='/') Shop
+      li.main-nav-item
+        a(href='/add-product') Add Products
+main.main-content
+  form(action='/add-product' method='POST')
+    input(type='text' name='value')
+    button Add Product
