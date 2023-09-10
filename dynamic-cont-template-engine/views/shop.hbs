@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/shop.css">
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-header-nav">
+            <ul class="main-nav-items">
+                <li class="main-nav-item"><a href="/">Shop</a></li>
+                <li class="main-nav-item"><a href="/add-product">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <h2 class="main-heading">My Products</h2>
+        <p class="main-paragraph">List of all productss</p>
+        {{#if hasProds}}
+        {{#each prods}}
+        <div class="grid">
+            <article class="card product_item">
+                <header class="card__header">
+                    <h1 class="product_title">{{this.title}}</h1>
+                </header>
+                <div class="card_image">
+                    <img src="https://media.istockphoto.com/id/1436096736/photo/knowledge-is-power-art-collage.webp?b=1&s=612x612&w=0&k=20&c=EERa6nZiy-YEPv0GITcsepTjT25o8Mume9bqeRfKc6c="
+                        alt="books">
+                </div>
+                <div class="card_content">
+                    <h2 class="product_price">19.45$</h2>
+                    <p class="product_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem non
+                        nam quisquam aperiam illo laborum molestiae velit. Repellat consequatur, tenetur doloribus,
+                        reprehenderit esse facilis quod commodi et iusto, rerum at.
+                        Nihil, maiores sint. Non veritatis nemo maxime magnam culpa, est quaerat voluptas accusamus
+                        laudantium incidunt dicta? Iste officiis voluptates facilis, nemo accusantium, voluptatum
+                        expedita eligendi sapiente quae ratione repudiandae commodi!</p>
+                </div>
+                <div class="card_action">
+                    <button class="add_card_btn">Add to cart</button>
+                </div>
+            </article>
+        </div>
+        {{/each}}
+        {{else}}
+        <h1>No products added</h1>
+        {{/if}}
+
+    </main>
+</body>
+
+</html>
