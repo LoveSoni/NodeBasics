@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const shopRouter = require('./routes/shop');
 const adminRouter = require('./routes/admin');
 // const expressHandleBars = require('express-handlebars');
+const errorController = require('./controller/error');
 const app = express();
 
 // app.set('view engine', 'pug');
@@ -19,7 +20,5 @@ app.use(shopRouter);
 app.use(adminRouter.router);
 app.use(express.static('public'))
 
-app.use('/', (request, response, next) => {
-    response.status(401).render('404', { pageTitle: 'Page Not Found' });
-})
+app.use('/', errorController.error_404);
 app.listen(3000);
