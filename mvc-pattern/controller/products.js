@@ -14,10 +14,12 @@ exports.postAddProduct = (request, response, next) => {
 }
 
 exports.getProducts = (request, response, next) => {
-    const product = Product.fetchAll();
+    Product.fetchAll(product => {
+        console.log('Addded products are : ', product);
+        // response.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
+        // to use pug file we have to use the render method
+        response.render('shop', { prods: product, hasProds: product > 0 });// we don't to specify the full path(including folder) because we have set it already in our app.js file under views key (app.set('views', 'views');)
+    });
 
-    console.log('Addded products are : ', product);
-    // response.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
-    // to use pug file we have to use the render method
-    response.render('shop', { prods: product, hasProds: product > 0 });// we don't to specify the full path(including folder) because we have set it already in our app.js file under views key (app.set('views', 'views');)
+
 }
