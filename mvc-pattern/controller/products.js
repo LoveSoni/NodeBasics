@@ -4,6 +4,11 @@ exports.getAddProduct = (request, response, next) => {
     response.render('admin');
 }
 
+exports.productDetails = (request, response, next) => {
+    const productId = request.params.productId
+    console.log('request id is ', productId);
+    response.send(`${productId}`)
+}
 
 exports.postAddProduct = (request, response, next) => {
     response.status(302);

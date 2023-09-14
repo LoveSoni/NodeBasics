@@ -10,7 +10,7 @@ router.get('/add-product', productController.getAddProduct);
 
 router.post('/add-product', productController.postAddProduct);
 
-
+router.get('/product-details/:productId', productController.productDetails);
 
 // module.exports = router; 
 exports.router = router;
