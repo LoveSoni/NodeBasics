@@ -2,6 +2,7 @@
 // instead of array we'll store in a file
 const fs = require('fs');
 const path = require('path');
+const uuidv4 = require('uuid');
 const { stringify } = require('querystring');
 
 
@@ -9,6 +10,7 @@ const { stringify } = require('querystring');
 module.exports = class Product {
     constructor(productTile) {
         this.productTile = productTile;
+        this.productId = uuidv4.v4();
     }
 
     saveProduct() {
@@ -22,7 +24,7 @@ module.exports = class Product {
             }
             myProduct.push(this);
             fs.writeFile(filePath, JSON.stringify(myProduct), (err) => {
-                console.log(error);
+                console.log(err);
             });
         });
         // fs.writeFile(filePath, (text) => {
