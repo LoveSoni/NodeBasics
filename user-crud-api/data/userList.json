@@ -17,13 +17,6 @@
             "first_name": "Lindsay",
             "last_name": "Ferguson",
             "avatar": "https://reqres.in/img/faces/8-image.jpg"
-        },
-        {
-            "id": 3,
-            "email": "love.love@gmail.com",
-            "first_name": "love",
-            "last_name": "l",
-            "avatar": "https://reqres.in/img/faces/3-image.jpg"
         }
     ],
     "support": {

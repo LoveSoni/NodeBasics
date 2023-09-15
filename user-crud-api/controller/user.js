@@ -64,5 +64,16 @@ exports.createUser = (request, response, next) => {
 
 
 exports.deleteUser = (request, response, next) => {
+    const userId = request.params.userId;
+    fs.readFile(usersListJsonFile, (error, fileContent) => {
+        const userJsonArray = JSON.parse(fileContent);
+        const userData = userJsonArray.data;
+        const updatedUserObject = userData.filter((data) => data.id != userId);
+        userJsonArray.data = updatedUserObject;
+        fs.writeFile(usersListJsonFile, JSON.stringify(userJsonArray), (err) => {
+            // console.log(err);
+        });
+        response.status(204).send('');
+    })
 
-}
+}   
