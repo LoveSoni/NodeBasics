@@ -76,4 +76,9 @@ exports.deleteUser = (request, response, next) => {
         response.status(204).send('');
     })
 
-}   
+}
+
+exports.updateUserDetails = (request, response, next) => {
+    const userId = request.params.userId;
+
+}
