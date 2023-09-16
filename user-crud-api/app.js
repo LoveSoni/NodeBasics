@@ -6,6 +6,26 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const app = express();
 
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            version: "1.0.0",
+            title: "Users API",
+            description: "Users API Information",
+            contact: {
+                name: "Love"
+            },
+            servers: ["http://localhost:5000"]
+        }
+    },
+    apis: ['./routes/*.js']
+    // apis: ["app.js"]
+};
+
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(userRoute.userRouter);
@@ -14,40 +34,6 @@ app.use(userRoute.userRouter);
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-
-const options = {
-    definition: {
-        openapi: "3.1.0",
-        info: {
-            title: "LogRocket Express API with Swagger",
-            version: "0.1.0",
-            description:
-                "This is a simple CRUD API application made with Express and documented with Swagger",
-            license: {
-                name: "MIT",
-                url: "https://spdx.org/licenses/MIT.html",
-            },
-            contact: {
-                name: "Love",
-                url: "https://logrocket.com",
-                email: "lovesoni607@gmail.com",
-            },
-        },
-        servers: [
-            {
-                url: "http://localhost:3000",
-            },
-        ],
-    },
-    apis: ["./routes/*.js"],
-};
-
-const specs = swaggerJsdoc(options);
-app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(specs)
-);
 
 
 app.use(errorRoute.errorRouter);
