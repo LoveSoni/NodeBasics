@@ -58,7 +58,7 @@ exports.createUser = (request, response, next) => {
         fs.writeFile(usersListJsonFile, JSON.stringify(userListJSONArray), (err) => {
             console.log(err);
         });
-        response.status(201).send('User Created Successfully');
+        response.status(201).json({ msg: 'User Created Successfully' });
     });
 }
 
