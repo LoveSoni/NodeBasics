@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/dev-workflow-debugging/app.js",
+            "program": "${workspaceFolder}/reqres-api-clone/app.js",
             "restart": true,
             "runtimeExecutable": "nodemon",
             "console": "integratedTerminal"
