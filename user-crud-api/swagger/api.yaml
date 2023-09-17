@@ -1,0 +1,150 @@
+openapi: 3.0.0
+info:
+  title: User CRUD Operation API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  contact:
+    name: Love
+    email: lovesoni607@example.com
+  version: 1.0
+
+servers:
+  - url: http://localhost:3000/
+    description: Local server
+  - url: https://prod.com/
+    description: Pre Production server
+  - url: https://test.com/
+    description: Production server
+# components:
+#   securitySchemes:
+#     ApiTokenss: # arbitrary name for the security scheme
+#       type: http
+#       scheme: bearer
+
+#     ApiKey: # arbitrary name for the security scheme
+#       type: apiKey
+#       in: header # can be "header", "query" or "cookie"
+#       name: apikey
+
+#   paths:
+#   /users/list:
+#     post:
+#       tags:
+#         - User List API
+#       summary: Returns a user list.
+#       description: <b> Request :- </b> <br /> <br />
+#         <b> page_no* </b>  is required <br />
+#         <b> status* </b>  is required <br />
+#         <b> type* </b>  is required <br />
+
+#       parameters:
+#         - in: query
+#           name: month_year
+#           schema:
+#             #type: integer
+#             example: 2022-10
+#       post:
+#       requestBody:
+#         required: true
+#         content:
+#           multipart/form-data:
+#             #application/json:
+#             schema:
+#               type: object
+#               properties:
+#                 page_no:
+#                   type: integer
+#                   example: 1
+#                 type:
+#                   type: string
+#                   example: "A"
+#                 status:
+#                   type: integer
+#                   example: 0
+#                 fileName:
+#                   type: string
+#                   format: binary
+
+#       responses:
+#         "200":
+#           description: A user object.
+#         "400":
+#           description: The specified user ID is invalid (not a number).
+#         "404":
+#           description: A user with the specified ID was not found.
+#         default:
+#           description: Unexpected error
+
+# get /users and post /users
+paths:
+  /users:
+    get:
+      tags:
+        - Read
+      summary: Returns user list
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+        - Create
+      summary: Create new user.
+      requestBody:
+        required: true
+        content:
+          # multipart/form-data:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "lovesoni607@gmail.com"
+                first_name:
+                  type: string
+                  example: "love"
+                last_name:
+                  type: string
+                  example: "love"
+      responses:
+        "200":
+          description: OK
+
+  # get /users/{userId} and delete /users/{userId}
+
+  /users/{userId}:
+    get:
+      tags:
+        - Read
+      summary: Returns a user details by ID.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            # type : integer
+            # format: int64
+            type: string
+            example: "1"
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - Delete
+      summary: Delete a user details by ID.
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            # type : integer
+            # format: int64
+            type: string
+            example: "1"
+            minimum: 1
+      responses:
+        "204":
+          description: No Content
